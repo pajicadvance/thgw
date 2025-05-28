@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.pajic.thgw.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractChestBoatMixin",
+    "HappyGhastMixin",
+    "ItemStackMixin",
+    "LeashableMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
