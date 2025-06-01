@@ -22,7 +22,7 @@ public abstract class ItemStackMixin {
     private InteractionResult flintAndSteelInteractHappyGhast(Player player, LivingEntity livingEntity, InteractionHand interactionHand, Operation<InteractionResult> original) {
         ItemStack itemStack = (ItemStack) (Object) this;
         if (itemStack.is(Items.FLINT_AND_STEEL) && livingEntity instanceof HappyGhast ghast && !ghast.isBaby()) {
-            AbstractChestBoat boat = (((HappyGhastAccess) ghast).thgw$getChestBoat());
+            AbstractChestBoat boat = ((HappyGhastAccess) ghast).thgw$getChestBoat();
             if (boat != null) {
                 return ((AbstractChestBoatAccess) boat).thgw$dropPrimedTnt(player, itemStack, interactionHand);
             }
@@ -31,14 +31,12 @@ public abstract class ItemStackMixin {
     }
 
     @WrapMethod(method = "use")
-    private InteractionResult useWhileRidingGhast(Level level, Player player, InteractionHand interactionHand, Operation<InteractionResult> original) {
+    private InteractionResult flintAndSteelUseWhileRidingGhast(Level level, Player player, InteractionHand interactionHand, Operation<InteractionResult> original) {
         ItemStack itemStack = (ItemStack) (Object) this;
-        if (itemStack.is(Items.FLINT_AND_STEEL)) {
-            if (player.getVehicle() instanceof HappyGhast ghast) {
-                AbstractChestBoat boat = (((HappyGhastAccess) ghast).thgw$getChestBoat());
-                if (boat != null) {
-                    return ((AbstractChestBoatAccess) boat).thgw$dropPrimedTnt(player, itemStack, interactionHand);
-                }
+        if (itemStack.is(Items.FLINT_AND_STEEL) && player.getVehicle() instanceof HappyGhast ghast) {
+            AbstractChestBoat boat = ((HappyGhastAccess) ghast).thgw$getChestBoat();
+            if (boat != null) {
+                return ((AbstractChestBoatAccess) boat).thgw$dropPrimedTnt(player, itemStack, interactionHand);
             }
         }
         return original.call(level, player, interactionHand);

@@ -21,11 +21,10 @@ public interface LeashableMixin {
             )
     )
     private void linkChestBoatToHappyGhast(Entity entity, boolean bl, CallbackInfo ci) {
-        Entity instance = (Entity) this;
-        if (instance instanceof AbstractChestBoat boat && entity instanceof HappyGhast ghast) {
+        Entity entity2 = (Entity) this;
+        if (entity2 instanceof AbstractChestBoat boat && entity instanceof HappyGhast ghast) {
             ((HappyGhastAccess) ghast).thgw$setChestBoat(boat);
-        }
-        if (instance instanceof HappyGhast ghast && entity instanceof AbstractChestBoat boat) {
+        } else if (entity2 instanceof HappyGhast ghast && entity instanceof AbstractChestBoat boat) {
             ((HappyGhastAccess) ghast).thgw$setChestBoat(boat);
         }
     }

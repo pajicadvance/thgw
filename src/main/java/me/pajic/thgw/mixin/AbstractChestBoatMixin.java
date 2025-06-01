@@ -1,6 +1,7 @@
 package me.pajic.thgw.mixin;
 
 import me.pajic.thgw.access.AbstractChestBoatAccess;
+import me.pajic.thgw.access.PrimedTntAccess;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -33,7 +34,9 @@ public abstract class AbstractChestBoatMixin extends AbstractBoat implements Abs
             for (int i = itemStacks.size() - 1; i >= 0; i--) {
                 ItemStack itemStack = itemStacks.get(i);
                 if (itemStack.is(Items.TNT)) {
-                    level().addFreshEntity(new PrimedTnt(level(), getX() + 0.5, getY(), getZ() + 0.5, shooter));
+                    PrimedTnt tnt = new PrimedTnt(level(), getX() + 0.5, getY(), getZ() + 0.5, shooter);
+                    ((PrimedTntAccess) tnt).thgw$setFiredFromGhast(true);
+                    level().addFreshEntity(tnt);
                     flintAndSteel.hurtAndBreak(1, shooter, hand);
                     itemStack.shrink(1);
                     return InteractionResult.SUCCESS;

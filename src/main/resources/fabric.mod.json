@@ -3,18 +3,23 @@
   "id": "thgw",
   "version": "${version}",
   "name": "Tactical Happy Ghast Warfare",
-  "description": "Team up with a happy ghast and a villager to create the ultimate war weapon",
+  "description": "Launch TNT from your happy ghast with a little help from a villager",
   "authors": ["pajic"],
   "contact": {},
   "license": "MIT",
   "icon": "icon.png",
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": [
+      "me.pajic.thgw.Main"
+    ]
+  },
   "mixins": [
     "thgw.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
+    "fabric": "*",
     "minecraft": "1.21.6-beta.1"
   }
 }

@@ -5,11 +5,11 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AbstractChestBoatMixin",
+    "DamageSourcesMixin",
     "HappyGhastMixin",
     "ItemStackMixin",
-    "LeashableMixin"
-  ],
-  "client": [
+    "LeashableMixin",
+    "PrimedTntMixin"
   ],
   "injectors": {
     "defaultRequire": 1
