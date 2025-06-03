@@ -4,7 +4,7 @@ This mod allows you to use flint and steel on happy ghasts to drop TNT from a le
 
 The mod also adds an advancement obtained by killing a certain mob with a TNT launched from a happy ghast, and an unique death message for players who die in the same manner.
 
-For now, the mod is only available for Fabric on MC 1.21.6 pre-release 1. A NeoForge version will be released when NeoForge gets released for 1.21.6.
+For now, the mod is only available for Fabric on MC 1.21.6 pre-releases (and will likely work on 1.21.6 release, too). A NeoForge version will be released when NeoForge gets released for 1.21.6.
 
 The Fabric version requires [Fabric API](https://modrinth.com/mod/fabric-api).
 
